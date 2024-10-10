@@ -1,14 +1,15 @@
 """Matemaatilised tehted"""
-
+import math
 # tingimuslaused if ja else töötavad ainult andmetüübiga bool(ean)
 
 # booleanil on vaid kaks väärtust kas False(ei kehti/0) või True (kehtiv/1)
 # booleani võib igasugu moodi esitada kuid kõige levinum on võrdlemine
 # kui tahame teada, kas 1 + 3 on võrdne nelajaga siis kasutame märki ==, töötab ka tekstiga
 # kuid peam olema tähelepanelik, kuna "Punane" ei ole sama mis "punane", kuid "Punane".lower() on sama mis "punane"
+print("praegu oleme siin:")
 print(1 + 3 == 4)
 print("Punanae == punane:")
-print("Punane" == "punane")
+print("Punane" == "punane".capitalize())
 print("Punane.lower() == punane:")
 print("Punane".lower() == "punane")
 
@@ -18,29 +19,42 @@ print("<, >, >=, <= :")
 print(1 + 2 < 4)
 
 # Samuti on jällegi olemas sisemoodulid nagu bool() siit saab näha, et  0 = False/ei kehti ja 1= True/kehtib
-print(bool(0))
+print(bool(1))
 # Lisaks sellele on näiteks ka sisefunktsioonid sõnel,
 # mis annavad võimalust kohe kontrollida, kas midagi kehtib või mitte
 # Kuidas saaks kontrollida et sõna "PUNANE" on kirjutatud suurte tähtedega
 # või et "punane" on kirjutatud väikeste tähtedega
-
+print("kontrollime kas sõna punane on kirjutatud suurte tähtedega")
+print("punane".upper().lower().capitalize().islower())
 
 # oletame et tahame teada kas arv on paaris või paaritu, kuidas saaks sellist ülesannet lahendada
 # mõtle, kuidas sina saad teada, et arv on paaris
 # kirjuta kood, mis küsib kasutajalt arvu
+print("jäägiga jagamine:")
+arv = int(input("sisesta täisarv:"))
 
-
+if arv % 2 == 0:
+    print("sinu arv on paaris arv")
+else:
+    print("sinu arv on paaritu arv")
 # ülesanne
 
 # ruutvõrrand esitatakse kujul ax2+bx+c
 # ruutvõrrand lahendatakse kordajate a, b, c abil, ruutvõrrandi lahendivalemi järgi
 
 # koosta muutuja a, lisa võimalus kasutajal sisestada arv, muuda see täisarvuks
-
+a = int(input("sisesta a:"))
 # koosta muutuja b, lisa võimalus kasutajal sisestada arv, muuda see täisarvuks
-
+b = int(input("sisesta b:"))
 # koosta muutuja c, lisa võimalus kasutajal sisestada arv, muuda see täisarvuks
-
+c = int(input("sisesta c:"))
 # ruutvõrrandil on tavaliselt 2 lahendit või lahendid puuduvad,
+diskriminant = (b ** 2) - (4 * a * c)
+if diskriminant < 0:
+    print("lahendid puuduvad")
+else:
+    lahend1 = (-b + math.sqrt(diskriminant)) / (2 * a)
+    lahend2 = (-b - math.sqrt(diskriminant)) / (2 * a)
+    print(f"lahendid on: x1={lahend1} ja x2={lahend2}")
 # kuidas saaks kohe üelda kasutajale, et lahendid puuduvad, kuidas neid leida
 # kuidas võiks nimetada muutujaid
